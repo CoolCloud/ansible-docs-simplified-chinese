@@ -1,6 +1,5 @@
 # Summary
 
-- [Index](index.md)
 - [Introduction](introduction\index.md)
 	- [Installation](introduction\installation.md)
 	- [Getting Started](introduction\getting_started.md)
