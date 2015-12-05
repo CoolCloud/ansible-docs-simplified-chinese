@@ -43,9 +43,9 @@ Ansible的更新周期大概是两个月。因为新版本的发布周期很短�
 >注意：	
 >如果你再被控机上启用了SELinux，你可能还要在上面安装```libselinux-python```，然后才能用Ansible里面的复制、文件、模板等功能。用Ansible的yum模块可以在被控机上安装这个包。
 
->注意：
->Python 3是一个和Python 2 稍有区别的语言，绝大多数的Python程序还没有迁移到Python 3上，其中就包括Ansible。然而，有些Linux发行版（Gentoo，Arch）可能默认安装的不是Python 2.X版本。在这些系统里，你需要安装一个Python 2.X版本，然后再Ansible的Inventory中（参看*Inventory*章节）把```ansible_python_interpreter```变量设置成Python 2.X的安装路径。Red Hat Enterprise Linux，CentOS，Fedora和Ubuntu的默认Python版本都是2.X，因此不需要做上面的操作。几乎所有的Unix操作系统也都不用装2.X版本。	
->如果你需要对被控机做一些初始化操作，可以用"raw"模块。例如如下命令：```ansible myhost --sudo -m raw -a "yum install -y python2 python-simplejson"```，会帮你把Ansible和Ansible模块需要的Python 2.X和simplejson安装好。
+>注意：     
+>Python 3和Python 2 稍有区别，绝大多数的Python程序还没有迁移到Python 3上，其中就包括Ansible。然而，有些Linux发行版（Gentoo，Arch）可能默认安装的不是Python 2.X版本。在这些系统里，你需要安装一个Python 2.X版本，然后在Ansible的Inventory中（参看*Inventory*章节）把```ansible_python_interpreter```变量设置成Python 2.X的安装路径。Red Hat Enterprise Linux，CentOS，Fedora和Ubuntu的默认Python版本都是2.X，因此不需要做上面的操作。几乎所有的Unix操作系统也都不用装2.X版本。	
+>如果你需要对被控机做一些初始化操作，可以用"raw"模块。例如如下命令：```ansible myhost --sudo -m raw -a "yum install -y python2 python-simplejson"```。这条命令会帮你把Ansible和Ansible模块需要的Python 2.X和simplejson安装好。
 
 ### 在主控机上安装Ansible
 
