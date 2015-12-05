@@ -155,7 +155,7 @@ $ sudo apt-get update
 $ sudo apt-get install ansible
 ```
 
->注意：
+>注意：     
 >在旧版本的Ubuntu下，“```software-properties-common```”被称作“```python-software-properties```”。
 
 Debian/Ubuntu下也可以通过如下方式把源码打包：
@@ -172,3 +172,81 @@ $ make deb
 $ emerge -av app-admin/ansible
 ```
 
+要安装Ansible的最新版，你还要在emerge之前启用Ansible。
+
+```
+$ echo 'app-admin/ansible' >> /etc/portage/package.accept_keywords
+```
+
+>注意：     
+>如果你的Gentoo系统上默认安装的是Python 3，则必须在组或者inventory的环境变量中设置以下内容：```ansible_python_interpreter = /usr/bin/python2```。
+
+#### 用pkg（FreeBSD）安装最新版
+
+```
+$ sudo pkg install ansible
+```
+
+也可以在ports中安装：
+
+```
+$ sudo make -C /usr/ports/sysutils/ansible install
+```
+
+#### 在Mac OS X上安装最新版
+
+在Mac系统里安装Ansible的最好方法就是用pip。具体可以参看用pip安装的章节。
+
+#### 用OpenCSW（Solaris）安装最新版
+
+OpenCSW为Solaris系统提供了一个用于SysV的Ansible安装包。
+
+```
+# pkgadd -d http://get.opencsw.org/now
+# /opt/csw/bin/pkgutil -i ansible
+```
+
+#### 用Pacman（Arch Linux）安装最新版
+
+在Pacman社区版本的软件库中可以下载到Ansible。
+
+```
+$ pacman -S ansible
+```
+
+在Arch Linux用户库中有一个专门用来从Github上拉取Ansible的软件包。
+
+也请参阅ArchWiki上的Ansible介绍。
+
+>注意：     
+>如果你的Arch系统上默认安装的是Python 3，则必须在组或者inventory的环境变量中设置以下内容：```ansible_python_interpreter = /usr/bin/python2```。
+
+#### 用pip安装最新版
+
+Ansible can be installed via “pip”, the Python package manager. If ‘pip’ isn’t already available in your version of Python, you can get pip by:
+
+也可以用pip来安装Ansible。pip的意思是“Python包管理器”。如果您的Python中尚未安装pip，您可以通过如下命令安装pip：
+
+```
+$ sudo easy_install pip
+```
+然后再安装Ansible
+```
+$ sudo pip install ansible
+```
+If you are installing on OS X Mavericks, you may encounter some noise from your compiler. A workaround is to do the following:
+
+如果您要在OS X Mavericks上安装Ansible，您的编译器可能会误报一些错误信息。您可以通过如下变通的方法来解决这些报错：
+```
+$ sudo CFLAGS=-Qunused-arguments CPPFLAGS=-Qunused-arguments pip install ansible
+```
+
+Readers that use virtualenv can also install Ansible under virtualenv, though we’d recommend to not worry about it and just install Ansible globally. Do not use easy_install to install ansible directly.
+
+习惯使用```virtualenv```的用户也可以在```virtualenv```下安装Ansible。不过我们不建议您这样做，直接将Ansible安装在真实环境中并没有什么大问题。对了，不要直接用```easy_install```安装Ansible。
+
+#### Tarballs of Tagged Releases
+
+如果您想把Ansible打成包自己留着用，但又不想用git checkout来下载代码，您可以在Ansible下载页下载到每个版本的压缩包。
+
+在我们的Git里，除了最新版以外，Ansible的每个往期版本也有各自的标签。
