@@ -12,7 +12,7 @@
 
 默认情况下，Ansible 1.3之后的版本会尝试使用本机自带的OpenSSH来和远端通信。这样一来便能使用ControlPersist（一个提高性能的功能），Kerberos，以及在```~/.ssh/config```中的配置了（比如Jump Host的设置）。可是，如果您用RHEL 6（或者对应版本的CentOS）作为主控端，上面的OpenSSH版本太低，是没办法支持ControlPersist的。在这样的操作系统上，Ansible会转而使用一个Python版本的OpenSSH，叫做“paramiko”。如果您还想用支持Kerberos的SSH，您要么用Fedora，OS X或者Ubuntu之类的系统做主控端，要么就看看Ansible的“加速模式”吧。
 
-1.2版本和再之前的Ansible都默认使用paramiko来连接SSH。如果想要使用原生的SSH，必须要再命令上加上```-c```参数，或者在配置文件里设置。
+1.2版本和再之前的Ansible都默认使用paramiko来连接SSH。如果想要使用原生的SSH，必须加上```-c```参数，或者在配置文件里设置。
 
 有时候，您可能还会碰见不支持SFTP的设备。这种事情不常有，但如果真让您碰上了，您可以在配置文件里把文件服务设置成SCP。
 
