@@ -1,10 +1,11 @@
 # Summary
 
+* [Introduction](index.md)
 * [Index](README.md)
 * [Introduction](introduction/index.md)
    * [Installation](introduction/installation.md)
    * [Getting Started](introduction/getting_started.md)
-   * [Inventory](introduction/inventory.md)
+   * [主机清单](introduction/inventory.md)
    * [Dynamic Inventory](introduction/dynamic_inventory.md)
    * [Patterns](introduction/patterns.md)
    * [Introduction To Ad-Hoc Commands](introduction/adhoc.md)
