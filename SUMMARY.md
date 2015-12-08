@@ -4,7 +4,7 @@
 * [Index](README.md)
 * [入门](introduction/index.md)
    * [安装](introduction/installation.md)
-   * [Getting Started](introduction/getting_started.md)
+   * [初探Ansible](introduction/getting_started.md)
    * [主机清单](introduction/inventory.md)
    * [Dynamic Inventory](introduction/dynamic_inventory.md)
    * [Patterns](introduction/patterns.md)
