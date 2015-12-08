@@ -1,12 +1,13 @@
 ## Inventory
 
-Ansible可以同时对您治下的多个系统做操作。它完成这项工作时，要读取您存储在Ansible的Inventory文件中的系统信息。默认情况下，Inventory文件指的是```/etc/ansible/hosts```这个文件。
+Ansible可以同时对您治下的多个系统做操作。它完成这项工作时，要读取您存储在Ansible的Inventory文件中的系统信息。默认情况下，Inventory文件指的是`/etc/ansible/hosts`这个文件。
 
 您不仅能编辑Inventory文件，还能同时使用多个Inventory文件。更为强大的是，您可以动态的获取Inventory文件，或者从云资源中下载到它，我们在Dynamic Inventory这一章会有更详细的介绍。
 
 ### Hosts和Groups
 
-```/etc/ansible/hosts```文件的格式和INI文件的格式很像，如下所示：
+`/etc/ansible/hosts`文件的格式和INI文件的格式很像，如下所示：
+
 
 ```
 mail.example.com
@@ -39,9 +40,9 @@ badwolf.example.com:5309
 jumper ansible_port=5555 ansible_host=192.168.1.50
 ```
 
-在上面的例子中，如果您对“jumper”这一主机别名（这可能干脆不是主机名）执行ansible命令，ansible会尝试连接192.168.1.50的5555端口。我们在本例中使用了inventory的一些功能来定义特殊变量。不过，如果您打算通过定义变量的方式来描述系统策略，本例的做法并不是最好的，我们稍后再来进行改进，现在先学会起步就好。
+在上面的例子中，如果您对“jumper”这一主机别名（这可能干脆不是主机名）执行ansible命令，ansible会尝试连接`192.168.1.50`的`5555`端口。我们在本例中使用了inventory的一些功能来定义特殊变量。不过，如果您打算通过定义变量的方式来描述系统策略，本例的做法并不是最好的，我们稍后再来进行改进，现在这样起步就好。
 
-要添加很多主机么？如果您这些主机名都遵循大致一样的格式，您可以用下面的方法，就不用一行一行写了。
+想要添加好多的主机？如果您这些主机名都遵循大致一样的格式，您可以用下面的方法，就不用一行一行写了。
 
 ```
 [webserver]
