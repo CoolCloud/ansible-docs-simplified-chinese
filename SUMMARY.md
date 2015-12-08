@@ -2,7 +2,7 @@
 
 * [Introduction](index.md)
 * [Index](README.md)
-* [Introduction](introduction/index.md)
+* [入门](introduction/index.md)
    * [Installation](introduction/installation.md)
    * [Getting Started](introduction/getting_started.md)
    * [主机清单](introduction/inventory.md)
