@@ -3,7 +3,7 @@
 * [Introduction](index.md)
 * [Index](README.md)
 * [入门](introduction/index.md)
-   * [Installation](introduction/installation.md)
+   * [安装](introduction/installation.md)
    * [Getting Started](introduction/getting_started.md)
    * [主机清单](introduction/inventory.md)
    * [Dynamic Inventory](introduction/dynamic_inventory.md)
