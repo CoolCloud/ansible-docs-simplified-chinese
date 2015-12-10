@@ -59,4 +59,64 @@ webserver:&staging
 webservers:dbservers:&staging:!phoenix
 ```
 
-上面的
+这个例子的意思是：所有在“webservers”和“dbservers”中的主机，只要在“staging”中的就会被管理，但是在“phoenix”中的主机就不会被管理了……哎呀我的天呐！
+
+如果您希望用“-e”参数将组的标示符传递给`ansible-playbook`，您也可以在匹配式中使用变量。不过很少有人这么做：
+
+```
+webservers:!{{excluded}}:&{{required}}
+```
+
+您也不必拘泥于完整的组名。主机名，IP地址和组名中都可以用通配符：
+
+```
+*.example.com
+*.com
+```
+
+而且，在匹配式中，把通配符形式和组名混着用也一样没问题。
+
+您可以根据一个主机，或者几个主机在组的位置编号来选择操作哪些主机。比如，我们有这样一个组：
+
+```
+[webservers]
+cobweb
+webbing
+weber
+```
+
+您可以通过给组添加序号的方式来选定主机。
+
+```
+webservers[0]	# == cobweb
+webservers[-1]	# == weber
+webservers[0:1]	# == webservers[0],webservers[1]
+				# == cobweb,webbing
+webservers[1:]	# == webbing,weber
+```
+
+很少有人会用正则表达式来写匹配式，但这样做也是可以的。只要在匹配式的前面加上“~”即可：
+
+```
+~(web|db).*\.example\.com
+```
+
+下面的内容可能稍微有点儿超前：您可以在使用`ansible`或者`ansible-playbook`时，通过添加`--limit`参数来添加排除规则：
+
+```
+ansible-playbook site.yml --limit datacenter2
+```
+
+如果您想从文件中读取主机列表作为参数传递，从Ansible 1.2开始在文件名前加上“@”即可。
+
+```
+ansible-playbook site.yml --limit @retry_hosts.txt
+```
+
+就这么简单。要想了解如何应用我们在这个地方学到的知识，请参阅Introduction To Ad-Hoc Commands和Playbooks。
+
+>注意：
+>主机列表的分隔符不光可以是“:”，也可以是“,”。我们尤其推荐您在处理范围，或者是IPv6的时候使用“,”。这个特性在Ansible 1.9中不适用。
+
+>注意：
+>到了Ansible 2.0，“;”不能再作为主机列表的分隔符使用了。
